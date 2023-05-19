@@ -1,0 +1,127 @@
+﻿<mah:MetroWindow x:Class="AutocadToRevit.Lib.CreateColumn"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AutocadToRevit.Lib"
+             mc:Ignorable="d"
+            Title="Create Column"
+            WindowStartupLocation="CenterScreen"
+            ResizeMode="NoResize" Height="287" Width="627">
+
+    <mah:MetroWindow.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!-- MahApps.Metro resource dictionaries. Make sure that all file names are Case Sensitive! -->
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+                <!-- Theme setting -->
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Themes/Light.Blue.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </mah:MetroWindow.Resources>
+    
+    
+    <StackPanel Orientation="Vertical" Margin="10,10,10,10" Width="NaN" Height="NaN">
+        <Grid Height="199">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="27*"></ColumnDefinition>
+                <ColumnDefinition Width="49*"></ColumnDefinition>
+                <ColumnDefinition Width="38*"></ColumnDefinition>
+                <ColumnDefinition Width="38*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="Layer" FontSize="15" 
+                       VerticalAlignment="Center" HorizontalAlignment="Left" Height="20" Width="35">
+
+            </TextBlock>
+
+            <TextBlock Grid.Row="1" Text="Column Family" FontSize="15" 
+                       VerticalAlignment="Center" HorizontalAlignment="Left" Height="20" Width="102">
+
+            </TextBlock>
+
+            <TextBlock Grid.Row="2" Text="Base Level" FontSize="15" 
+                       VerticalAlignment="Center" HorizontalAlignment="Left" Height="20" Width="102">
+
+            </TextBlock>
+
+            <TextBlock Grid.Row="3" Text="Top Level" FontSize="15" 
+                       VerticalAlignment="Center" HorizontalAlignment="Left" Height="20" Width="102">
+
+            </TextBlock>
+
+            <TextBlock Grid.Row="2" Grid.Column="2" Text="Base Offset" FontSize="15" 
+                       VerticalAlignment="Center" HorizontalAlignment="Center" Height="20" Width="102">
+
+            </TextBlock>
+
+            <TextBlock Grid.Row="3" Grid.Column="2" Text="Top Offset" FontSize="15" 
+                       VerticalAlignment="Center" HorizontalAlignment="Center" Height="20" Width="102">
+
+            </TextBlock>
+
+            <ComboBox Grid.Column="1" Grid.ColumnSpan="3" Height="NaN" Margin="0,10,0,10"
+                      ItemsSource="{Binding AllLayers}"
+                      SelectedItem="{Binding SelectedLayer}"
+                      IsEditable="True"/>
+
+            <ComboBox Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" Height="NaN" Margin="0,10,0,10"
+                      ItemsSource="{Binding AllFamiliesColumn}"
+                      SelectedItem="{Binding SelectedFamilyColumn}"
+                      DisplayMemberPath="Name"
+                      IsEditable="True"/>
+
+            <ComboBox Grid.Column="1" Grid.Row="2"  Height="NaN" Margin="0,10,0,10"
+                      ItemsSource="{Binding AllLevel}"
+                      SelectedItem="{Binding BaseLevel}"
+                      DisplayMemberPath="Name"
+                      IsEditable="True"/>
+
+            <ComboBox Grid.Column="1" Grid.Row="3"  Height="NaN" Margin="0,10,0,10"
+                      ItemsSource="{Binding AllLevel}"
+                      SelectedItem="{Binding TopLevel}"
+                      DisplayMemberPath="Name"
+                      IsEditable="True"/>
+
+            <TextBox Grid.Column="3" Grid.Row="2" Margin="0,10,0,10"
+                     Text="{Binding BaseOffset}"
+                     ToolTip="The unit is milimeter"></TextBox>
+
+            <TextBox Grid.Column="3" Grid.Row="3" Margin="0,10,0,10"
+                     Text="{Binding TopOffset}"
+                     ToolTip="The unit is milimeter"></TextBox>
+        </Grid>
+
+        <DockPanel LastChildFill="True" Height="39">
+            <Button DockPanel.Dock="Right" Content="Cancle" Width="55" Height="30"
+                    Background="Blue"
+                    Click="btn_Cancle" FontSize="15"
+                    Style="{StaticResource MahApps.Styles.Button.Square.Accent}">
+                
+            </Button>
+
+            <Button DockPanel.Dock="Right" Content="Ok" Width="61" Height="30"
+                    Background="Blue" Margin="5,0,5,0"
+                    Click="btn_Ok" FontSize="15"
+                    Style="{StaticResource MahApps.Styles.Button.Square.Accent}">
+            </Button>
+
+            <Grid>
+                <ProgressBar Margin="5" Name="ProgressWindow"></ProgressBar>
+
+                <TextBlock Grid.ColumnSpan="2"
+                           Text="{Binding Percent, StringFormat={}{0:0}%}"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center" FontSize="15"/>
+            </Grid>
+        </DockPanel>
+    </StackPanel>
+</mah:MetroWindow>

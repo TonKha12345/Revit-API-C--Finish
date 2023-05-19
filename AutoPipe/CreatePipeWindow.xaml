@@ -1,0 +1,282 @@
+﻿<mah:MetroWindow x:Class="CreatePipe.CreatePipeWindow"
+                 xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+                 xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+                 xmlns:local="clr-namespace:CreatePipe"
+                 mc:Ignorable="d" 
+                 Title="Create Pipe From Autocad"
+                 WindowStartupLocation="CenterScreen"
+                 ResizeMode="CanResizeWithGrip"
+                 d:DataContext="{d:DesignData local: CreatePipeViewModel}" Width="794" Height="548">
+
+    <mah:MetroWindow.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!-- MahApps.Metro resource dictionaries. Make sure that all file names are Case Sensitive! -->
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+                <!-- Theme setting -->
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Themes/Light.Blue.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </mah:MetroWindow.Resources>
+
+    <StackPanel Orientation="Vertical">
+        <Grid Margin="10" Height="454">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Grid.Column="0" Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="109*"></ColumnDefinition>
+                    <ColumnDefinition Width="138*"></ColumnDefinition>
+                    <ColumnDefinition Width="123*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Column="0"
+                       Text="Main Pipe" FontSize="20" Foreground="Blue" 
+                       HorizontalAlignment="Left" VerticalAlignment="Center"
+                       Style="{StaticResource MahApps.Styles.TextBlock.HamburgerMenuHeader}" Height="27" Width="91"/>
+
+                <TextBlock Grid.Row="1" Grid.Column="0" Margin="10,0,0,0"
+                       Text="Pipe Type" FontSize="15" Foreground="Blue" 
+                       HorizontalAlignment="Left" VerticalAlignment="Center"
+                       Style="{StaticResource MahApps.Styles.TextBlock.HamburgerMenuHeader}" Height="20" Width="66"/>
+
+                <TextBlock Grid.Row="2" Margin="10,0,0,0"
+                       Text="System Type" FontSize="15" Foreground="Blue" 
+                       HorizontalAlignment="Left" VerticalAlignment="Center"
+                       Style="{StaticResource MahApps.Styles.TextBlock.HamburgerMenuHeader}" Height="20" Width="84"/>
+
+                <TextBlock Grid.Row="3" Grid.Column="0" Margin="10,0,0,0"
+                       Text="Offset" FontSize="15" Foreground="Blue" 
+                       HorizontalAlignment="Left" VerticalAlignment="Center"
+                       Style="{StaticResource MahApps.Styles.TextBlock.HamburgerMenuHeader}" Height="20" Width="42"/>
+
+                <TextBlock Grid.Row="3" Grid.Column="2" Margin="10,0,0,0"
+                       Text="(mm)" FontSize="15" Foreground="Black" 
+                       HorizontalAlignment="Left" VerticalAlignment="Center"
+                       Style="{StaticResource MahApps.Styles.TextBlock.HamburgerMenuHeader}" Height="20" Width="37"/>
+
+                <ComboBox Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Margin="5,10,5,10"
+                      ItemsSource="{Binding AllPipeType}"
+                      SelectedItem="{Binding SelectedPipeTypeMain}"
+                      IsEditable="True"
+                      DisplayMemberPath="Name"
+                      Style="{StaticResource MahApps.Styles.ComboBox}"/>
+
+                <ComboBox Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Margin="5,10,5,10"
+                      ItemsSource="{Binding AllSystemType}"
+                      SelectedItem="{Binding SelectedSystemTypeMain}"
+                      IsEditable="True"
+                      DisplayMemberPath="Name"
+                      Style="{StaticResource MahApps.Styles.ComboBox}"/>
+
+                <TextBox Grid.Row="3" Grid.Column="1" Margin="5,10,5,10"
+                     Text="{Binding MainPipeOffset}"
+                     Style="{StaticResource MahApps.Styles.TextBox}">
+
+                </TextBox>
+
+            </Grid>
+
+            <Grid Grid.Row="0" Grid.Column="1" Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="109*"></ColumnDefinition>
+                    <ColumnDefinition Width="138*"></ColumnDefinition>
+                    <ColumnDefinition Width="123*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Column="0"
+                       Text="Brand Pipe" FontSize="20" Foreground="Blue" 
+                       HorizontalAlignment="Left" VerticalAlignment="Center"
+                       Style="{StaticResource MahApps.Styles.TextBlock.HamburgerMenuHeader}" Height="27" Width="104"/>
+
+                <TextBlock Grid.Row="1" Grid.Column="0" Margin="10,0,0,0"
+                       Text="Pipe Type" FontSize="15" Foreground="Blue" 
+                       HorizontalAlignment="Left" VerticalAlignment="Center"
+                       Style="{StaticResource MahApps.Styles.TextBlock.HamburgerMenuHeader}" Height="20" Width="66"/>
+
+                <TextBlock Grid.Row="2" Margin="10,0,0,0"
+                       Text="System Type" FontSize="15" Foreground="Blue" 
+                       HorizontalAlignment="Left" VerticalAlignment="Center"
+                       Style="{StaticResource MahApps.Styles.TextBlock.HamburgerMenuHeader}" Height="20" Width="84"/>
+
+                <TextBlock Grid.Row="3" Grid.Column="0" Margin="10,0,0,0"
+                       Text="Offset" FontSize="15" Foreground="Blue" 
+                       HorizontalAlignment="Left" VerticalAlignment="Center"
+                       Style="{StaticResource MahApps.Styles.TextBlock.HamburgerMenuHeader}" Height="20" Width="42"/>
+
+                <TextBlock Grid.Row="3" Grid.Column="2" Margin="10,0,0,0"
+                       Text="(mm)" FontSize="15" Foreground="Black" 
+                       HorizontalAlignment="Left" VerticalAlignment="Center"
+                       Style="{StaticResource MahApps.Styles.TextBlock.HamburgerMenuHeader}" Height="20" Width="37"/>
+
+                <ComboBox Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Margin="5,10,5,10"
+                      ItemsSource="{Binding AllPipeType}"
+                      SelectedItem="{Binding SelectedPipeTypeBrand}"
+                      IsEditable="True"
+                      DisplayMemberPath="Name"
+                      Style="{StaticResource MahApps.Styles.ComboBox}"/>
+
+                <ComboBox Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Margin="5,10,5,10"
+                      ItemsSource="{Binding AllSystemType}"
+                      SelectedItem="{Binding SelectedSystemTypeBrand}"
+                      IsEditable="True"
+                      DisplayMemberPath="Name"
+                      Style="{StaticResource MahApps.Styles.ComboBox}"/>
+
+                <TextBox Grid.Row="3" Grid.Column="1" Margin="5,10,5,10"
+                     Text="{Binding BrandPipeOffset}"
+                     Style="{StaticResource MahApps.Styles.TextBox}">
+
+                </TextBox>
+
+            </Grid>
+
+            <Grid Grid.Row="1" Grid.Column="0" Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="136*"></ColumnDefinition>
+                    <ColumnDefinition Width="111*"></ColumnDefinition>
+                    <ColumnDefinition Width="123*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Column="0"
+                       Text="Setting" FontSize="20" Foreground="Blue" 
+                       HorizontalAlignment="Left" VerticalAlignment="Center"
+                       Style="{StaticResource MahApps.Styles.TextBlock.HamburgerMenuHeader}" Height="27" Width="104"/>
+
+                <TextBlock Grid.Row="1" Margin="10,0,0,0"
+                       Text="Name Start With" FontSize="15" Foreground="Blue" 
+                       HorizontalAlignment="Left" VerticalAlignment="Center"
+                       Style="{StaticResource MahApps.Styles.TextBlock.HamburgerMenuHeader}" Height="20" Width="120" RenderTransformOrigin="0.5,0.5"/>
+
+                <TextBlock Grid.Row="2" Margin="10,0,0,0"
+                       Text="Middle Diameter" FontSize="15" Foreground="Blue" 
+                       HorizontalAlignment="Left" VerticalAlignment="Center" 
+                       Style="{StaticResource MahApps.Styles.TextBlock.HamburgerMenuHeader}" Height="20" Width="126"/>
+
+                <TextBlock Grid.Row="3" Grid.Column="0" Margin="10,0,0,0"
+                       Text="Level" FontSize="15" Foreground="Blue" 
+                       HorizontalAlignment="Left" VerticalAlignment="Center"
+                       Style="{StaticResource MahApps.Styles.TextBlock.HamburgerMenuHeader}" Height="20" Width="42"/>
+
+                <TextBox Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Margin="5,10,5,10"
+                         Text="{Binding NameStartWith}"
+                         Style="{StaticResource MahApps.Styles.TextBox}"/>
+
+                <TextBox Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Margin="5,10,5,10"
+                         Text="{Binding MiddleDiameter}"
+                         Style="{StaticResource MahApps.Styles.TextBox}"/>
+
+                <ComboBox Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" Margin="5,10,5,10"
+                      ItemsSource="{Binding AllLevel}"
+                      SelectedItem="{Binding SelectedLevel}"
+                      IsEditable="True"
+                      DisplayMemberPath="Name"
+                      Style="{StaticResource MahApps.Styles.ComboBox}"/>
+
+            </Grid>
+
+            <Grid Grid.Row="1" Grid.Column="1" Margin="7,10,13,10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="12*"></ColumnDefinition>
+
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40*"></RowDefinition>
+                    <RowDefinition Height="26*"></RowDefinition>
+                    <RowDefinition Height="26*"></RowDefinition>
+                    <RowDefinition Height="26*"></RowDefinition>
+                    <RowDefinition Height="26*"></RowDefinition>
+                    <RowDefinition Height="26*"></RowDefinition>
+                    <RowDefinition Height="26*"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Column="0"
+                       Text="Information" FontSize="20" Foreground="Blue" 
+                       HorizontalAlignment="Left" VerticalAlignment="Center" 
+                       Style="{StaticResource MahApps.Styles.TextBlock.HamburgerMenuHeader}" Height="28" Width="104"/>
+
+                <TextBlock Grid.Row="1"
+                       Text="- Name Start with: Example DN50 have name start" FontSize="15" Foreground="Blue" 
+                       HorizontalAlignment="Center" VerticalAlignment="Center"
+                       Style="{StaticResource MahApps.Styles.TextBlock.HamburgerMenuHeader}" Height="32" Width="348"/>
+
+                <TextBlock Grid.Row="2"
+                       Text=" with is DN" FontSize="15" Foreground="Blue" 
+                       HorizontalAlignment="Center" VerticalAlignment="Center"
+                       Style="{StaticResource MahApps.Styles.TextBlock.HamburgerMenuHeader}" Height="36" Width="348"/>
+
+                <TextBlock Grid.Row="3"
+                       Text="- Middle Diameter: example 50, pipes have  " FontSize="15" Foreground="Blue" 
+                       HorizontalAlignment="Center" VerticalAlignment="Center"
+                       Style="{StaticResource MahApps.Styles.TextBlock.HamburgerMenuHeader}" Height="50" Width="348" Grid.RowSpan="2"/>
+
+                <TextBlock Grid.Row="4"
+                       Text=" diameter less than 50 is Branch Pipe, pipes have " FontSize="15" Foreground="Blue" 
+                       HorizontalAlignment="Center" VerticalAlignment="Center"
+                       Style="{StaticResource MahApps.Styles.TextBlock.HamburgerMenuHeader}" Height="32" Width="348"/>
+
+                <TextBlock Grid.Row="5"
+                       Text=" diameter greater than 50 is Main Pipe " FontSize="15" Foreground="Blue" 
+                       HorizontalAlignment="Center" VerticalAlignment="Center"
+                       Style="{StaticResource MahApps.Styles.TextBlock.HamburgerMenuHeader}" Height="38" Width="348"/>
+
+            </Grid>
+
+        </Grid>
+
+        <DockPanel LastChildFill="True" Height="50" Width="786">
+
+            <Button DockPanel.Dock="Right" Content="Cancle" Height="32"
+                    FontSize="15" Width="72"
+                    Click="btn_Cancle" Margin="5"
+                    Style="{StaticResource MahApps.Styles.Button.Square.Accent}">
+            </Button>
+
+            <Button DockPanel.Dock="Right" Content="Create" Height="32"
+                    FontSize="15" Width="72"
+                    Click="btn_Ok" Margin="5"
+                    Style="{StaticResource MahApps.Styles.Button.Square.Accent}">
+            </Button>
+
+            <Grid>
+                <ProgressBar Margin="5" Name="ProgressWindow"
+                             Style="{StaticResource MahApps.Styles.ProgressBar}">
+                </ProgressBar>
+
+                <TextBlock Grid.ColumnSpan="2"
+                           Text="{Binding Percent, StringFormat={}{0:0}%}"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center" FontSize="15"/>
+            </Grid>
+        </DockPanel>
+
+    </StackPanel>
+</mah:MetroWindow>

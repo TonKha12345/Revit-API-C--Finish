@@ -1,0 +1,6 @@
+C:\Users\Admin\Desktop\Hoc Revit API\AutoDuct\bin\Debug\AutoDuct.dll
+C:\Users\Admin\Desktop\Hoc Revit API\AutoDuct\bin\Debug\AutoDuct.pdb
+C:\Users\Admin\Desktop\Hoc Revit API\AutoDuct\obj\Debug\AutoDuct.csproj.AssemblyReference.cache
+C:\Users\Admin\Desktop\Hoc Revit API\AutoDuct\obj\Debug\AutoDuct.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\Hoc Revit API\AutoDuct\obj\Debug\AutoDuct.dll
+C:\Users\Admin\Desktop\Hoc Revit API\AutoDuct\obj\Debug\AutoDuct.pdb

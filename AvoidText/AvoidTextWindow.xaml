@@ -1,0 +1,108 @@
+﻿<mah:MetroWindow x:Class="AvoidText.AvoidTextWindow"
+                 xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+                 xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+                 xmlns:local="clr-namespace:AvoidText"
+                 mc:Ignorable="d" 
+                 Title="Avoid Obstruction"
+                 WindowStartupLocation="CenterScreen"
+                 ResizeMode="CanResizeWithGrip" Height="190" Width="792">
+
+    <mah:MetroWindow.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!-- MahApps.Metro resource dictionaries. Make sure that all file names are Case Sensitive! -->
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+                <!-- Theme setting -->
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Themes/Light.Blue.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </mah:MetroWindow.Resources>
+
+    <StackPanel Orientation="Vertical" Margin="0,0,0,8">
+        <Grid Height="107" Width="784">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="13*"></ColumnDefinition>
+                <ColumnDefinition Width="43*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Column="0"
+                       Text="Parameter" FontSize="15" Foreground="Blue" 
+                       HorizontalAlignment="Left" VerticalAlignment="Center"
+                       Style="{StaticResource MahApps.Styles.TextBlock.HamburgerMenuHeader}" Height="27" Width="87" Margin="4,0,0,0">
+            </TextBlock>
+
+            <TextBlock Grid.Column="0" Grid.Row="1"
+                       Text="Value" FontSize="15" Foreground="Blue" 
+                       HorizontalAlignment="Left" VerticalAlignment="Center"
+                       Style="{StaticResource MahApps.Styles.TextBlock.HamburgerMenuHeader}" Height="27" Width="87" Margin="4,0,0,0">
+            </TextBlock>
+
+            <TextBlock Grid.Row="2"
+                       Text="PipingSystemType" FontSize="15" Foreground="Blue" 
+                       HorizontalAlignment="Center" VerticalAlignment="Center"
+                       Style="{StaticResource MahApps.Styles.TextBlock.HamburgerMenuHeader}" Height="27" Width="174"/>
+
+            <ComboBox Grid.Column="1" Grid.Row="0" Margin="5,5,5,5"
+                      ItemsSource="{Binding AllParameter}"
+                      SelectedItem="{Binding SelectedParameter}"
+                      IsEditable="True"
+                      DisplayMemberPath="Definition.Name"
+                      Style="{StaticResource MahApps.Styles.ComboBox}"/>
+
+            <ComboBox Grid.Column="1" Grid.Row="2" Margin="5,5,5,5"
+                      ItemsSource="{Binding AllPipingSystemType}"
+                      SelectedItem="{Binding SelectedPipingSystemType}"
+                      IsEditable="True"
+                      DisplayMemberPath="Name"
+                      Style="{StaticResource MahApps.Styles.ComboBox}"/>
+
+            <TextBox Grid.Column="1" Grid.Row="1" Margin="5,5,5,4"
+                         Text="{Binding Value}"
+                         Style="{StaticResource MahApps.Styles.TextBox}"/>
+        </Grid>
+        <DockPanel Height="52" LastChildFill="False">
+
+            <Button DockPanel.Dock="Right" Content="Cancle" Height="32"
+                    FontSize="15" Width="72"
+                    Click="btn_Cancle" Margin="5"
+                    Style="{StaticResource MahApps.Styles.Button.Square.Accent}">
+            </Button>
+
+            <Button DockPanel.Dock="Right" Content="Ok" Height="32"
+                    FontSize="15" Width="72"
+                    Click="btn_Ok" Margin="5"
+                    Style="{StaticResource MahApps.Styles.Button.Square.Accent}">
+            </Button>
+
+            <RadioButton DockPanel.Dock="Right" Width="126" Height="30"
+                         Content="IsCurrentView" FontSize="15"
+                         VerticalAlignment="Center"
+                         GroupName="a"
+                         Style="{StaticResource MahApps.Styles.RadioButton}"
+                         IsChecked="{Binding IsCurrentView}"></RadioButton>
+
+            <RadioButton DockPanel.Dock="Right" Width="110" Height="30"
+                         Content="IsSelection" FontSize="15"
+                         GroupName="a"
+                         Style="{StaticResource MahApps.Styles.RadioButton}"
+                         IsChecked="{Binding IsSelection}"/>
+
+            <RadioButton DockPanel.Dock="Right" Width="126" Height="30"
+                         Content="IsEntireProject" FontSize="15"
+                         VerticalAlignment="Center"
+                         GroupName="a"
+                         Style="{StaticResource MahApps.Styles.RadioButton}"
+                         IsChecked="{Binding IsEntireProject}"></RadioButton>
+
+        </DockPanel>
+
+    </StackPanel>
+</mah:MetroWindow>

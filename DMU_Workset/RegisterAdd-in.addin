@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+
+  <AddIn Type="Application">
+    <Name>DMU_Workset</Name>
+    <Assembly>C:\Users\Admin\Desktop\Hoc Revit API\DMU_Workset\bin\Debug\DMU_Workset.dll</Assembly>
+    <FullClassName>DMU_Workset.AutoVPApp.AutoVPApp</FullClassName>
+    <AddInId>01199B2C-2A43-41BA-AB46-3ACD49B8645B</AddInId>
+    <VendorId>TTK</VendorId>
+    <VendorDescription>TTK</VendorDescription>
+  </AddIn>
+
+
+</RevitAddIns>
