@@ -1,0 +1,6 @@
+C:\Users\Admin\Desktop\Hoc Revit API\DMU_ViewSection\bin\Debug\DMU_ViewSection.dll
+C:\Users\Admin\Desktop\Hoc Revit API\DMU_ViewSection\bin\Debug\DMU_ViewSection.pdb
+C:\Users\Admin\Desktop\Hoc Revit API\DMU_ViewSection\obj\Debug\DMU_ViewSection.csproj.AssemblyReference.cache
+C:\Users\Admin\Desktop\Hoc Revit API\DMU_ViewSection\obj\Debug\DMU_ViewSection.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\Hoc Revit API\DMU_ViewSection\obj\Debug\DMU_ViewSection.dll
+C:\Users\Admin\Desktop\Hoc Revit API\DMU_ViewSection\obj\Debug\DMU_ViewSection.pdb
